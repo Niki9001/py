@@ -34,6 +34,7 @@ class Draw():
    # for j in range(6):
     #    color += colorArr[random.randint(0,14)]
     #return '#'+ color
+# 自定义颜色
 colorArr = ["cadetblue","green","blue","black","orange","grey","purple","navy","peru","olive","red"]
 
 
@@ -41,6 +42,7 @@ colorArr = ["cadetblue","green","blue","black","orange","grey","purple","navy","
 # 第一张图
 a = Draw()
 a.sp(1,1,1)
+# 不同的线分配不同的颜色
 for i in range(8):
     a.pic(f"Index N{i}",colorArr[i])
 
