@@ -43,12 +43,6 @@ class Draw():
 colorArr = ["green","blue","black","orange","grey","purple","navy","olive","red","peru","cadetblue"]
 a = Draw()
 a.sp(1,1,1)
-#k = df.iloc[0:3,4:10]
-#l = np.array(k)
-#j = l.tolist()
-#for number in range(8):
- #   print(number)
- #   a.pic(i,colorArr[number])
 b = a.sRange(0,3,4,10)
 for number in range(0,3):
     a.pic(b[number],colorArr[number])
