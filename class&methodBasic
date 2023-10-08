@@ -1,0 +1,110 @@
+"""
+# Class Attribute
+
+class A(object):
+    # Defining a property, which is a class attribute. Attributes directly defined in a class are class attributes.
+    # Class attributes can be accessed through the class or class instances, see lines 11-14.
+    # Class attributes can only be modified through the class object, see line 16. They cannot be modified via the instance.
+    # Instance attributes will only be added, overshadowing the previous class attributes, and it will only take effect in the current instance.
+    count = 0
+a = A()
+# Instance Attribute. Attributes added through an instance are known as instance attributes.
+# Even if the class doesn't have an attribute named 'count2', using a.count2 effectively adds a new attribute to the instance.
+
+print(a.count2)
+A.count = 100
+print(a.count)
+print(A.count)
+"""
+"""
+# Instance Attribute
+
+class A(object):
+    count = 0
+    def __init__(self):
+        # This is also an instance attribute because 'self' refers to an instance.
+        # Instance attributes can only be accessed and modified through the instance and cannot be accessed or modified by the class object.
+
+a = A()
+print(a.name)
+#print(A.name) This will cause an error, as A is the class and a is the instance. Instance attributes can only be accessed through the instance.
+"""
+"""
+# Instance Method
+
+class A(object):
+    count = 0
+    def __init__(self):
+        self.name = "Student"
+
+    # This is an instance method.
+    # Instance methods are directly defined within a class.
+    # Methods with 'self' as the first parameter are instance methods.
+    # When invoking the instance method, Python will pass the invoking object as 'self' into the method.
+    # Instance methods can be invoked through both the instance and the class.
+    # When invoked via the instance, the current invoking object will automatically be passed as 'self'.
+    # When invoked via the class, 'self' won't be passed automatically; it must be passed manually.
+
+    def test(self):
+        print("这是test方法")
+        print(self)
+        
+a = A()
+a.test()
+#A.test() This will cause an error because 'self' is missing. A.test(a) is equivalent to a.test().
+"""
+"""
+# Class Method
+
+class A(object):
+    count = 0
+    def __init__(self):
+        self.name = "Student"
+        
+    def test(self):
+        print("This is the test method")
+
+    # Methods decorated with @classmethod in the class are class methods.
+    # The first parameter for a class method is 'cls', which is automatically passed and refers to the current class object.
+    # Class methods can be invoked via both the class and the instance. There's no difference in either approach.
+    @classmethod
+    def test_2(cls):
+        print("This is test_2 method, this is a class method.")
+        print(cls.count)
+        
+a = A()
+a.test_2()
+A.test_2() # No difference between the two invocations.
+"""
+
+# Static Method
+
+class A(object):
+    count = 0
+    def __init__(self):
+        self.name = "Student"
+
+    def test(self):
+        print("This is the test method")
+
+    @classmethod
+    def test_2(cls):
+        print("This is test_2 method, this is a class method.")
+        print(cls.count)
+
+    # Methods decorated with @staticmethod in a class are static methods.
+    # Static methods don't need any default parameters.
+    # They can be invoked via both the class and the instance.
+    # Static methods are almost independent of the current class. It's essentially a function stored within the class.
+    # Static methods are generally utility methods unrelated to the class.
+    # When a method doesn't belong anywhere, you can convert it into a static method.
+    # The difference between a static method and a function is that the static method has to be invoked through something (either the class or the instance) but can't be directly invoked like a function.
+    @staticmethod
+    def test_3():
+        print("test3 runs.")
+
+
+a = A()
+
+A.test_3()
+a.test_3()
