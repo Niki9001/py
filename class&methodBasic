@@ -24,6 +24,7 @@ class A(object):
     def __init__(self):
         # This is also an instance attribute because 'self' refers to an instance.
         # Instance attributes can only be accessed and modified through the instance and cannot be accessed or modified by the class object.
+        self.name = "Student"
 
 a = A()
 print(a.name)
